@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="250.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ManageEmpUserController">
+   <children>
+      <TabPane prefHeight="250.0" prefWidth="400.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Manage Employees">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="employeeTable" layoutX="7.0" layoutY="6.0" prefHeight="159.0" prefWidth="386.0">
+                          <columns>
+                            <TableColumn fx:id="empIdCol" prefWidth="47.0" text="Id" />
+                            <TableColumn fx:id="empNameCol" prefWidth="124.0" text="Name" />
+                              <TableColumn fx:id="empDepartmentCol" prefWidth="108.0" text="Department" />
+                              <TableColumn fx:id="empHireDateCol" prefWidth="106.0" text="Hire Date" />
+                          </columns>
+                        </TableView>
+                        <Button layoutX="14.0" layoutY="171.0" mnemonicParsing="false" onAction="#handleAddEmployee" text="Add New" />
+                        <Button layoutX="109.0" layoutY="171.0" mnemonicParsing="false" onAction="#handleModifyEmployee" text="Modify" />
+                        <Button layoutX="191.0" layoutY="171.0" mnemonicParsing="false" onAction="#handleDeleteEmployee" text="Delete" />
+                        <Button layoutX="325.0" layoutY="171.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Manage Users">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="161.0" prefWidth="205.0">
+                     <children>
+                        <TableView fx:id="userTable" layoutX="7.0" layoutY="5.0" prefHeight="161.0" prefWidth="385.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="5.0">
+                          <columns>
+                            <TableColumn fx:id="userId" prefWidth="76.0" text="User Id" />
+                            <TableColumn fx:id="userName" prefWidth="148.0" text="User Name" />
+                              <TableColumn fx:id="userPass" prefWidth="135.0" text="Password" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <Button layoutX="8.0" layoutY="174.0" mnemonicParsing="false" onAction="#handleAddUser" text="Add User" />
+                        <Button layoutX="99.0" layoutY="174.0" mnemonicParsing="false" onAction="#handleModifyUser" text="Modify User" />
+                        <Button layoutX="207.0" layoutY="174.0" mnemonicParsing="false" onAction="#handleDelete" text="Delete" />
+                        <Button layoutX="341.0" layoutY="174.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

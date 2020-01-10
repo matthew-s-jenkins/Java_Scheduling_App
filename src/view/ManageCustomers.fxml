@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ManageCustomersController">
+   <children>
+      <TableView fx:id="customerTable" layoutX="21.0" layoutY="47.0" prefHeight="200.0" prefWidth="528.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+        <columns>
+          <TableColumn fx:id="cusId" prefWidth="51.0" text="ID #" />
+          <TableColumn fx:id="cusName" minWidth="9.0" prefWidth="169.0" text="Customer Name" />
+            <TableColumn fx:id="cusAddress" prefWidth="158.0" text="Address" />
+            <TableColumn fx:id="custAddress2" prefWidth="121.0" text="Address 2" />
+            <TableColumn fx:id="cusCity" prefWidth="73.0" text="City" />
+            <TableColumn fx:id="cusZip" prefWidth="81.0" text="Zip Code" />
+            <TableColumn fx:id="cusPhone" prefWidth="136.0" text="Phone #" />
+        </columns>
+      </TableView>
+      <Button layoutX="37.0" layoutY="333.0" mnemonicParsing="false" onAction="#handleAddCustomer" text="Add Customer" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" />
+      <Button layoutX="172.0" layoutY="333.0" mnemonicParsing="false" onAction="#handleModifyCustomer" text="Modify Customer" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="140.0" />
+      <Button layoutX="287.0" layoutY="364.0" mnemonicParsing="false" onAction="#handleDeleteCustomer" text="Delete Customer" AnchorPane.bottomAnchor="5.0" />
+      <Button layoutX="735.0" layoutY="364.0" mnemonicParsing="false" onAction="#handleBack" text="Back" AnchorPane.bottomAnchor="5.0" />
+   </children>
+</AnchorPane>
