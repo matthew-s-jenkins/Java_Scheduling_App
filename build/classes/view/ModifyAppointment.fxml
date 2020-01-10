@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="537.0" prefWidth="415.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ModifyAppointmentController">
+   <children>
+      <GridPane layoutX="14.0" layoutY="7.0" prefHeight="523.0" prefWidth="388.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="38.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="47.0" minHeight="0.0" prefHeight="47.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="65.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Modify Appointment" GridPane.valignment="TOP">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Customer to Modify:" GridPane.rowIndex="1" />
+            <ComboBox fx:id="customerName" minWidth="-Infinity" prefWidth="220.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Appointment Title:" GridPane.rowIndex="2" />
+            <ComboBox fx:id="titleComboBox" editable="true" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="220.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Location:" GridPane.rowIndex="3" />
+            <ComboBox fx:id="locationBox" minWidth="-Infinity" prefWidth="220.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Contact:" GridPane.rowIndex="4" />
+            <ComboBox fx:id="employeeContactBox" minWidth="-Infinity" prefWidth="220.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date:" GridPane.rowIndex="5" />
+            <DatePicker fx:id="calendarBox" minWidth="-Infinity" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Start Time:" GridPane.rowIndex="6" />
+            <ComboBox fx:id="startTimeHourBox" onAction="#handleStartHourAction" prefWidth="150.0" promptText="Select Hour" translateX="-160.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+            <ComboBox fx:id="startTimeMinuteBox" prefWidth="150.0" promptText="Select Minute" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="End Time:" GridPane.rowIndex="7" />
+            <ComboBox fx:id="endTimeHourBox" onAction="#handleEndHourAction" prefWidth="150.0" promptText="Select Hour" translateX="-160.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
+            <ComboBox fx:id="endTimeMinuteBox" prefWidth="150.0" promptText="Select Minute" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Customer URL:" GridPane.rowIndex="8" />
+            <TextField fx:id="urlText" minWidth="-Infinity" prefHeight="31.0" prefWidth="275.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="8" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description:" GridPane.rowIndex="9" />
+            <TextArea fx:id="descriptionText" minWidth="-Infinity" prefHeight="91.0" prefWidth="275.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="9" />
+            <Button mnemonicParsing="false" onAction="#handleModifyAppointment" text="Modify Appointment" translateX="100.0" GridPane.halignment="RIGHT" GridPane.rowIndex="10" />
+            <Button mnemonicParsing="false" onAction="#handleCancelAppointment" text="Cancel" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="10" />
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>
