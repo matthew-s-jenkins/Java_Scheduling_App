@@ -1,4 +1,8 @@
-# Java_Scheduling_App
+# WGUfinal_javaAppointmentSchedulingApp
+
+The following are the instuructions given for the final exam graduating from WGU for Bachelor's in Software Development. This degree was awarded in 2019.
+This was the most advanced program I had written at the time. The part that gave me the most grief overall was the time conversion betweeen time zones!
+
 Software 2 - WGU C195
 
 INTRODUCTION
