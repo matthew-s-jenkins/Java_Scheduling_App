@@ -1,73 +1,108 @@
-# WGUfinal_javaAppointmentSchedulingApp
+# Java Desktop Scheduling Application
 
-The following are the instuructions given for the final exam graduating from WGU for Bachelor's in Software Development. This degree was awarded in 2019.
-This was the most advanced program I had written at the time. The part that gave me the most grief overall was the time conversion betweeen time zones!
+[![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.java.com/)
+[![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
 
-Software 2 - WGU C195
+> A robust, full-featured desktop scheduling application built in pure Java with a MySQL backend. This project was the capstone for the B.S. in Software Development from Western Governors University (2019).
 
-INTRODUCTION
-Throughout your career in software design and development, you will be asked to create applications with various features and criteria based on a variety of business requirements. For this assessment, you will create your own Java application with requirements that mirror those you will encounter in a real-world job assignment.
+---
 
-The skills you will showcase in this assessment are also directly relevant to technical interview questions for future employment. This application should become a portfolio piece for you to show to future employers.
+## 📋 Table of Contents
 
-Several attachments and links have been included to help you complete this task. Refer to the “MySQL Virtual Access Instructions” attachment for help accessing the database for your application. Note that this database is for functional purposes only and does not include any pre-existing data. The attached “Database ERD” shows the entity relationship diagram (ERD) for this database, which you can reference as you create your application.
+- [About the Project](#about-the-project)
+- [Core Features](#core-features)
+- [Key Technical Challenges & Solutions](#key-technical-challenges--solutions)
+- [Tech Stack](#tech-stack)
+- [Original Project Requirements](#original-project-requirements)
+- [Contact](#contact)
 
-uCertify provides the (mySQL) database you need for this course. Do not create your own database.
-COS -> Course Materials -> mySQL Database (Lab) -> Create DB
-Use the connection string that uCertify provides in order to access the database from your PA code.
+---
 
-The preferred integrated development environment (IDE) for this assignment is NetBeans. Use the web link “NetBeans Installation Instructions” to install this application. If you choose to use another IDE, you must export your project into NetBeans format for submission.
+## 🎯 About the Project
 
-When you have completed this task, you must submit a zip file with all the necessary code files to compile, support, and run your application.
+This project is a comprehensive desktop scheduling application designed to meet the complex requirements of a global consulting organization. Developed as the final capstone for a Bachelor's degree in Software Development, it demonstrates a complete understanding of object-oriented programming, database management, and GUI design using only core Java libraries.
 
-Note: The zip file submission must also keep the project file and folder structure intact for the NetBeans IDE
+### The Vision
 
-SCENARIO
-You are working for a software company that has been contracted to develop a scheduling desktop user interface application. The contract is with a global consulting organization that conducts business in multiple languages and has main offices in Phoenix, Arizona; New York, New York; and London, England. The consulting organization has provided a MySQL database that your application must pull data from. The database is used for other systems and therefore its structure cannot be modified.
+The application was built to solve a real-world business problem: managing customers and appointments across multiple international offices (Phoenix, New York, and London). The core objective was to create a reliable, user-friendly tool that could handle the complexities of different languages and time zones, providing a centralized system for consultants.
 
-The organization outlined specific business requirements that must be included as part of the application. From these requirements, a system analyst at your company created solution statements for you to implement in developing the application. These statements are listed in the requirements section.
+### Why This Matters
 
-REQUIREMENTS
-Your submission must be your original work. No more than a combined total of 30% of the submission and no more than a 10% match to any one individual source can be directly quoted or closely paraphrased from sources, even if cited correctly. An originality report is provided when you submit your task that can be used as a guide.
+As a capstone project from 2019, this application showcases a strong foundation in software engineering principles without reliance on modern frameworks. It proves an ability to:
+- 🌐 **Handle Internationalization:** The application was built from the ground up to support multiple languages, dynamically translating UI components and error messages based on the user's locale.
+- ⏰ **Solve Complex Time Zone Logic:** A significant part of the project involved creating a robust system to manage time conversions accurately across different regions, correctly handling daylight saving time.
+- 🗄️ **Master Database Connectivity:** Implemented all database interactions (CRUD operations) using pure JDBC and a MySQL backend, demonstrating a deep understanding of data persistence and management.
+- 🛡️ **Implement Business Rules:** The application enforces critical business logic, such as preventing appointment overlaps and scheduling outside of defined business hours, through a rigorous exception control system.
 
-You must use the rubric to direct the creation of your submission because it provides detailed criteria that will be used to evaluate your work. Each requirement below may be evaluated by more than one rubric aspect. The rubric aspect titles may contain hyperlinks to relevant portions of the course.
+---
 
-You are not allowed to use frameworks or external libraries. The database does not contain data, so it needs to be populated. You must use “test” as the username and password to log-in.
+## ✨ Core Features
 
-A.   Create a log-in form that can determine the user’s location and translate log-in and error control messages (e.g., “The username and password did not match.”) into two languages.
+- **Secure User Authentication:** A login form that verifies user credentials against the database and detects user location for language and time zone settings.
+- **Comprehensive CRM:** Full Create, Read, Update, and Delete (CRUD) functionality for customer records, including name, address, and phone number.
+- **Appointment Management:** Full CRUD capabilities for appointments, linking each appointment to a specific customer record.
+- **Dual Calendar Views:** An intuitive user interface that allows users to view the appointment calendar by both month and week.
+- **Automated Time Zone Adjustments:** Automatically converts and displays all appointment times in the user's local time zone.
+- **Smart Appointment Alerts:** Provides an alert upon login if there is an appointment scheduled within the next 15 minutes.
+- **Business Rule Enforcement:** Prevents scheduling conflicts, such as overlapping appointments or booking outside of standard business hours (8 a.m. to 10 p.m. EST).
+- **In-Depth Reporting:** Generates three key reports: number of appointment types by month, the full schedule for each consultant, and a custom report.
+- **User Activity Logging:** Tracks all user login attempts (both successful and unsuccessful) with timestamps in a local `.txt` file for auditing purposes.
 
-B.   Provide the ability to add, update, and delete customer records in the database, including name, address, and phone number.
+---
 
-C.   Provide the ability to add, update, and delete appointments, capturing the type of appointment and a link to the specific customer record in the database.
+## 🔧 Key Technical Challenges & Solutions
 
-D.   Provide the ability to view the calendar by month and by week.
+This project required solving several complex problems using only standard Java libraries.
 
-E.    Provide the ability to automatically adjust appointment times based on user time zones and daylight saving time.
+- **Challenge:** **Time Zone Conversion**
+  - **Solution:** Leveraged Java's `java.time` (JSR-310) library, including `ZonedDateTime`, `ZoneId`, and `Instant` classes. All appointments were stored in the database in a neutral format (UTC) and converted to the user's local time zone upon retrieval and display, ensuring accuracy for all international offices.
 
-F.   Write exception controls to prevent each of the following. You may use the same mechanism of exception control more than once, but you must incorporate at least  two different mechanisms of exception control.
+- **Challenge:** **Internationalization & Localization**
+  - **Solution:** Implemented resource bundles (`.properties` files) for both English and French. The application detects the user's system language and loads the appropriate language file, allowing for seamless translation of all labels, buttons, and error messages.
 
-•   scheduling an appointment outside business hours
+- **Challenge:** **Enforcing Business Logic**
+  - **Solution:** A multi-layered exception control system was created. Custom exceptions were used for business rule violations (e.g., `AppointmentOverlapException`), while standard `try-catch` blocks handled data validation and database errors, providing clear feedback to the user.
 
-•   scheduling overlapping appointments
+- **Challenge:** **Code Efficiency**
+  - **Solution:** Implemented lambda expressions to simplify event handlers for GUI elements and to iterate over collections for report generation, resulting in more concise and readable code.
 
-•   entering nonexistent or invalid customer data
+---
 
-•   entering an incorrect username and password
+## 🛠️ Tech Stack
 
-G.  Write two or more lambda expressions to make your program more efficient, justifying the use of each lambda expression with an in-line comment.
- 
-H.   Write code to provide an alert if there is an appointment within 15 minutes of the user’s log-in.
+| Component | Technology | Purpose |
+|-----------|-----------|---------|
+| **Language** | Java 8 | Core application logic and object-oriented design. |
+| **User Interface** | JavaFX | Used for creating the graphical user interface (GUI) components. |
+| **Database** | MySQL | Persistent storage for all customer and appointment data. |
+| **Connectivity**| JDBC API | Standard Java API for connecting to the MySQL database. |
+| **IDE** | NetBeans | The integrated development environment used for the project. |
 
-I.   Provide the ability to generate each  of the following reports:
+---
 
-•   number of appointment types by month
+## 📜 Original Project Requirements
 
-•   the schedule for each consultant
+<details>
+<summary>Click to view the original WGU C195 assignment details</summary>
 
-•   one additional report of your choice
+- **A.** Create a log-in form that can determine the user’s location and translate log-in and error control messages into two languages.
+- **B.** Provide the ability to add, update, and delete customer records in the database.
+- **C.** Provide the ability to add, update, and delete appointments, linking to a customer record.
+- **D.** Provide the ability to view the calendar by month and by week.
+- **E.** Provide the ability to automatically adjust appointment times based on user time zones.
+- **F.** Write exception controls to prevent scheduling outside business hours, overlapping appointments, invalid customer data, and incorrect login.
+- **G.** Write two or more lambda expressions to make your program more efficient.
+- **H.** Write code to provide an alert if there is an appointment within 15 minutes of the user’s log-in.
+- **I.** Provide the ability to generate reports: number of appointment types by month, schedule for each consultant, and one additional report.
+- **J.** Provide the ability to track user activity by recording timestamps for user log-ins in a `.txt` file.
+- **K.** Demonstrate professional communication in the content and presentation of your submission.
 
-J.   Provide the ability to track user activity by recording timestamps for user log-ins in a .txt file. Each new record should be appended to the log file, if the file already exists.
+</details>
 
-K. Demonstrate professional communication in the content and presentation of your submission.
+---
 
-Note: Please use the password "admin" to access the Modify Employee/User page.
+## 📧 Contact
+
+**Matthew Jenkins**
+- GitHub: [@matthew-s-jenkins](https://github.com/matthew-s-jenkins)
+
